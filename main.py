@@ -1,7 +1,9 @@
 def Ola():
-print("Ola")
+    print("Ola")
+
 
 def Mundo():
     print("Mundo")
+
 
 Ola()
