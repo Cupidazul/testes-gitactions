@@ -38,7 +38,11 @@ jobs:
       - name: Deploy to Staging
         run: |
           echo "Deploying to staging..."
-
+          echo "API URL: $API_URL"
+          echo "Deploy Key: ${{ secrets.DEPLOY_KEY }}"
+        env:
+          API_URL: ${{ vars.API_URL }}
+          
   deploy-prod:
     runs-on: ubuntu-latest
     environment:
@@ -47,4 +51,8 @@ jobs:
       - name: Deploy to Production
         run: |
           echo "Deploying to production..."
+          echo "API URL: $API_URL"
+          echo "Deploy Key: ${{ secrets.DEPLOY_KEY }}"
+        env:
+          API_URL: ${{ vars.API_URL }}
           
