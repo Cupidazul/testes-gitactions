@@ -23,13 +23,28 @@ jobs:
   # This workflow contains a single job called "greet"
   greet:
     # The type of runner that the job will run on
-    runs-on: ${{ matrix.runner }}
-    strategy:
-      matrix:
-        runner: [ self-hosted, ubuntu-latest ]
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ inputs.name }}"
+
+  deploy-staging:
+    runs-on: ubuntu-latest
+    environment: stg
+    steps:
+      - name: Deploy to Staging
+        run: |
+          echo "Deploying to staging..."
+
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment:
+      name: prd
+    steps:
+      - name: Deploy to Production
+        run: |
+          echo "Deploying to production..."
+          
