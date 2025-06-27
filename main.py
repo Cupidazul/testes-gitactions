@@ -7,3 +7,5 @@ def Mundo():
 
 
 Ola()
+
+Mundo()
